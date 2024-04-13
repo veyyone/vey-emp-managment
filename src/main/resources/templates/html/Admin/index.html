@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+		        xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link  th:href="@{/styles/css/indexPageAndInputs.css}" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .form-control{
+        border-radius: 1em;
+        margin-left:10px;
+        width: 95%;
+      }
+      .btn{
+        width: 95%;
+        margin-top: 10px;
+        margin-left: 10px;
+        border-radius: 1em;
+      }
+
+  
+    </style>
+    <title>Employee Managment System</title>
+
+  </head>
+  <body>
+    <h1 class="display-4">Admin Login</h1>
+    <img class="img" src="" th:src="@{/image/document-mgt.gif}" alt=""/>
+    
+    <div class="login-form">
+    <div class="container-fluid">
+      
+    <form method="POST"  th:action="@{/}">
+   <span  th:text=*{error}></span>
+
+    <div class="mb-1" id="adminIdlable">
+      <label  class="form-label">Admin ID</label>
+      <input type="text" class="form-control"  name="adminEmailId" placeholder="12334@example.com">
+      <span  th:text=*{errorEmail}></span>
+    </div>
+
+    <div class="mb-1">
+      <label for="exampleFormControlTextarea1" class="form-label">Enter Password</label>
+      <input type="password" class="form-control"  name="adminPassword" placeholder="Enter Password">
+      <span th:text=*{errorPswd}></span>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+    
+    <!-- End Example Code -->
+ 
+    
+  </body>
+</html>

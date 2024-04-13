@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link  th:href="@{/styles/css/indexPageAndInputs.css}" rel="stylesheet"/>
+    <link  th:href="@{/styles/css/empPage.css}" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .form-control{
+        border-radius: 1em;
+        margin-left:10px;
+        width: 95%;
+      }
+      .btn{
+        width: 95%;
+        margin-top: 10px;
+        margin-left: 10px;
+        border-radius: 1em;
+      }
+    </style>
+    <title>Employee Managment System</title>
+
+  </head>
+
+  <body class="empDetails">
+    <h1 class="display-4">Adding Employee Details</h1>
+    <img class="img"  th:src="@{/image/document-mgt.gif}" />
+    
+    <div class="empDetailsFields">
+    <div class="container-fluid">
+    
+    <form method="POST"  th:action="@{'/updateDetails/'+ ${EmpId}}" >
+    <span th:text=*{error}></span>
+
+    <div class="mb-1" id="adminIdlable">
+      <label  class="form-label">Employee FirstName</label>
+      <input type="text" class="form-control"  th:field="*{empDetail.EmpFirstName}" placeholder="Enter FirstName">
+      <span th:text=*{errorFname}></span>
+    </div>
+
+    <div class="mb-1">
+      <label for="exampleFormControlTextarea1" class="form-label">Employee LastName</label>
+      <input type="text" class="form-control"  th:field="*{empDetail.EmpLastName}" placeholder="Enter LastName">
+      <span th:text=*{errorLname}></span>
+    </div>
+
+    <div class="mb-1">
+        <label for="exampleFormControlTextarea1" class="form-label">Employee Mail ID</label>
+        <input type="text" class="form-control"  th:field="*{empDetail.EmpMailId}" placeholder="Enter Mail ID">
+        <span th:text=*{errorMailId}></span>
+      </div>
+
+      <div class="mb-1">
+        <label for="exampleFormControlTextarea1" class="form-label">Employee Domain</label>
+        <input type="text" class="form-control" list="domain"  th:field="*{empDetail.EmpDomain}" placeholder="Enter Domain">
+            <datalist id="domain">
+                <option value="ADM JAVA">
+                <option value="ADM DOTNET">
+                <option value="ADM JAVA SELINIAM">
+            </datalist>
+        <span th:text=*{errorDomain}></span>
+      </div>
+
+      <div class="mb-1">
+        <label for="exampleFormControlTextarea1" class="form-label">Employee Phone Number</label>
+        <input type="tel" class="form-control"  th:field="*{empDetail.EmpPhoneNum}" placeholder="Enter Phone Number">
+        <span th:text=*{errorPhno}></span>
+      </div>
+
+      <div class="mb-1">
+        <label for="exampleFormControlTextarea1" class="form-label">Employee Age</label>
+        <input type="number" class="form-control"  th:field="*{empDetail.Empage}" min="18" max="60" placeholder="Enter Age">
+        <span th:text=*{errorAge}></span>
+      </div>
+
+      <div class="mb-1">
+        <label for="exampleFormControlTextarea1" class="form-label">Employee Gender</label>
+        <input type="text" class="form-control" list="Gender"  th:field="*{empDetail.EmpGender}" placeholder="Enter Domain">
+            <datalist id="Gender">
+                <option value="Male">
+                <option value="Female">
+                <option value="Other">
+            </datalist>
+        <span th:text=*{errorGender}></span>
+      </div>
+      
+
+    <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+
+  </body>
+</html>
