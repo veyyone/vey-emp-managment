@@ -49,13 +49,13 @@ public class AdminIndexController {
 		 ModelAndView mav =new ModelAndView();
 				System.out.println(adminEmailId+" "+adminPassword);
 				if(!adminEmailId.isEmpty() && !adminPassword.isEmpty()) {
-					AdminLogin admin=adminservice.admin(adminEmailId);
-						if(admin==null) {
+					AdminLogin admin=new AdminLogin(adminEmailId, adminPassword);
+						if(!admin.getAdminEmailId().equalsIgnoreCase("admin@moon.com")) {
 									
 								modelmap.put("error", "*This Admin Id not exits");
 								mav.setViewName("index");
 						}else {
-							if(admin.getAdminEmailId().equals(adminEmailId) && admin.getAdminPassword().equals(adminPassword)) {
+							if(admin.getAdminEmailId().equalsIgnoreCase("admin@moon.com") && admin.getAdminPassword().equalsIgnoreCase("moon@9047.")) {
 									mav.setViewName("redirect:/welcome");
 							}else {
 								modelmap.put("error","*Please provide correct Admin Id or Password");
