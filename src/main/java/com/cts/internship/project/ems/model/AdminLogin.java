@@ -42,9 +42,13 @@ public class AdminLogin {
 		this.adminPassword = adminPassword;
 	}
 
+    public AdminLogin(String adminEmailId, String adminPassword) {
+		this.adminEmailId=adminEmailId;
+		this.adminPassword=adminPassword;
+    }
 
 
-	public long getId() {
+    public long getId() {
 		return id;
 	}
 
